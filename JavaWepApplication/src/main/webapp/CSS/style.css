@@ -1,0 +1,22 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<! DOCTYPE html PUBLIC "- // W3C // DTD HTML 4.01 Transitional // EN" "http://www.w3.org/TR/html4/loose.dtd" > 
+<html>
+ 
+<cabeza>
+<meta http-equiv = "Content-Type" content = "text / html; charset = ISO-8859-1" >
+<title> Encabezado </title>
+<link href = "/JavaWebApp/css/style.css" rel = "hoja de estilo" >
+</head>
+ 
+<cuerpo>
+ 
+<ul>
+  <li> <a class= "active" href= "#home"> Inicio </a> </li>
+  <li> <a href= "#login"> Iniciar sesión </a> </li>
+  <li> <a href= "#register"> Registrarse </a> </li>
+  <li> <a href= "#contactus"> Comuníquese con nosotros </a> </li>
+  <li> <a href= "#aboutus"> Acerca de nosotros </a> </li>
+</ul>
+</body>
+</html>
