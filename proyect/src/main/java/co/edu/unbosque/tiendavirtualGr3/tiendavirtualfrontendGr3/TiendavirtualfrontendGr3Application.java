@@ -1,13 +1,13 @@
-package co.edu.unbosque.tiendavirtual.tiendavirtualbackendGr3;
+package co.edu.unbosque.tiendavirtualGr3.tiendavirtualfrontendGr3;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class TiendavirtualbackendGr3Application {
+public class TiendavirtualfrontendGr3Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(TiendavirtualbackendGr3Application.class, args);
+		SpringApplication.run(TiendavirtualfrontendGr3Application.class, args);
 	}
 
 }
