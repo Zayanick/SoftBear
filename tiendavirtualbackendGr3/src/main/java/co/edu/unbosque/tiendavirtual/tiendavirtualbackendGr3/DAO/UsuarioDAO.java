@@ -9,13 +9,13 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 import co.edu.unbosque.tiendavirtual.tiendavirtualbackendGr3.DTO.Usuarios;
-public class ClienteDAO {
+public class UsuarioDAO {
 	/**
 	 * permite consultar la lista de Clientes
 	 * @return
 	 */
 	public ArrayList<Usuarios> listaDeUsuarios() {
-	  ArrayList<Usuarios> misEstudiantes = new ArrayList<Usuarios>();
+	  ArrayList<Usuarios> misUsuarios = new ArrayList<Usuarios>();
 	  Conexion conex= new Conexion();
 	    
 	  try {
@@ -23,18 +23,14 @@ public class ClienteDAO {
 	   ResultSet res = consulta.executeQuery();
 	   while(res.next()){
 	    
-	    int id = Integer.parseInt(res.getString("id"));
-	    String correoInst = res.getString("correo_institucional");
-	    String nombres = res.getString("nombres");
-	    String apellidos = res.getString("apellidos");
-	    String telefonoFijo = res.getString("telefono_fijo");
-	    String telefonoCelular = res.getString("telefono_celular");
-	    String correoPersonal = res.getString("correo_personal");
-	    String programa = res.getString("programa_academico");
-	    String fechaNac = res.getString("fecha_nacimiento");
-	    Usuarios persona= new Usuarios(id, correoInst, nombres, apellidos, telefonoFijo,
-				telefonoCelular, correoPersonal, programa, fechaNac);
-	    misEstudiantes.add(persona);
+		int cedula = Integer.parseInt(res.getString("cedula_cliente"));
+	    String email = res.getString("email_usuario");
+	    String nombre = res.getString("nombre_usuario");
+	    String password = res.getString("password");
+	    String usuario = res.getString("usuario");
+	    
+	    Usuarios persona= new Usuarios(cedula, email, nombre, password, usuario);
+	    misUsuarios.add(persona);
 	          }
 	          res.close();
 	          consulta.close();
@@ -43,15 +39,15 @@ public class ClienteDAO {
 	  } catch (Exception e) {
 	   JOptionPane.showMessageDialog(null, "no se pudo consultar la Persona\n"+e);
 	  }
-	  return misEstudiantes;
+	  return misUsuarios;
 	 }
 	
-	public Usuarios registrarEstudiante(Usuarios persona) 
+	public Usuarios registrarUsuario(Usuarios persona) 
 	 {
 	  Conexion conex= new Conexion();
 	  try {
 	   Statement estatuto = conex.getConnection().createStatement();
-	   estatuto.executeUpdate("INSERT INTO estudiante VALUES ('"+persona.getId()+"', '"+persona.getCorreoInstitucional()+"','"
+	   estatuto.executeUpdate("INSERT INTO usuarios VALUES ('"+persona.getId()+"', '"+persona.getCorreoInstitucional()+"','"
 	     +persona.getNombres()+"', '"+persona.getApellidos()+"','"+persona.getTelefonoFijo()+"', '"+persona.getTelefonoCel()+"','"
 	     +persona.getCorreoPersonal()+"','"+persona.getPrograma()+"','"+persona.getFechaNacimiento()+"')");
 	   
