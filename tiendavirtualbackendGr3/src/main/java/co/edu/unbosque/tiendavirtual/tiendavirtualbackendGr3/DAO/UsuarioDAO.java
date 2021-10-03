@@ -47,9 +47,8 @@ public class UsuarioDAO {
 	  Conexion conex= new Conexion();
 	  try {
 	   Statement estatuto = conex.getConnection().createStatement();
-	   estatuto.executeUpdate("INSERT INTO usuarios VALUES ('"+persona.getId()+"', '"+persona.getCorreoInstitucional()+"','"
-	     +persona.getNombres()+"', '"+persona.getApellidos()+"','"+persona.getTelefonoFijo()+"', '"+persona.getTelefonoCel()+"','"
-	     +persona.getCorreoPersonal()+"','"+persona.getPrograma()+"','"+persona.getFechaNacimiento()+"')");
+	   estatuto.executeUpdate("INSERT INTO usuarios VALUES ('"+persona.getCedula()+"', '"+persona.getEmail()+"','"
+	     +persona.getNombre()+"', '"+persona.getPassword()+"','"+persona.getUsuario()+"','");
 	   
 	   
 	   estatuto.close();
@@ -63,11 +62,11 @@ public class UsuarioDAO {
 	 }
 	
 	
-	public Usuario consultarUsuario(Usuario usr) {
+	public Usuarios consultarUsuario(Usuarios usr) {
 		Conexion conn =  new Conexion();
-		Usuario usuarioEnc = null;
+		Usuarios usuarioEnc = null;
 		PreparedStatement ps = null;
-		Usuario usuarioRet = null;
+		Usuarios usuarioRet = null;
 		ResultSet rs = null;
 		
 		String sql = "SELECT * FROM unbosque.usuario us WHERE us.nombre like ?";
@@ -78,13 +77,14 @@ public class UsuarioDAO {
 			rs =  ps.executeQuery();
 			while(rs.next()) {
 				Integer cedula = rs.getInt(1);
-				String nombre =  rs.getString(2);
-				String psswrd =  rs.getString(3);
-				String rol = rs.getString(4);
-				usuarioEnc =  new Usuario(cedula, nombre, psswrd, rol);
+				String email = rs.getString("email_usuario");
+			    String nombre = rs.getString("nombre_usuario");
+			    String password = rs.getString("password");
+			    String usuario = rs.getString("usuario");
+				usuarioEnc =  new Usuarios(cedula, email, nombre, password, usuario);
 			}
 			if(usuarioEnc != null) {
-			if(usuarioEnc.getContrasena().equals(usr.getContrasena())) {
+			if(usuarioEnc.getPassword().equals(usr.getPassword())) {
 				usuarioRet = usuarioEnc;
 			}
 			}
