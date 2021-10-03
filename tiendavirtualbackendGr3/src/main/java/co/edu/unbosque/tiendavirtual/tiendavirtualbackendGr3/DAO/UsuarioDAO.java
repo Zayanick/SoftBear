@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 import co.edu.unbosque.tiendavirtual.tiendavirtualbackendGr3.DTO.Usuarios;
+
 public class UsuarioDAO {
 	/**
 	 * permite consultar la lista de Clientes
@@ -19,13 +20,13 @@ public class UsuarioDAO {
 	  Conexion conex= new Conexion();
 	    
 	  try {
-	   PreparedStatement consulta = conex.getConnection().prepareStatement("SELECT * FROM clientes");
+	   PreparedStatement consulta = conex.getConnection().prepareStatement("SELECT * FROM tiendagenerica.usuarios");
 	   ResultSet res = consulta.executeQuery();
 	   while(res.next()){
 	    
-		int cedula = Integer.parseInt(res.getString("cedula_cliente"));
-	    String email = res.getString("email_usuario");
-	    String nombre = res.getString("nombre_usuario");
+		int cedula = Integer.parseInt(res.getString("cedula"));
+	    String email = res.getString("email");
+	    String nombre = res.getString("nombre");
 	    String password = res.getString("password");
 	    String usuario = res.getString("usuario");
 	    
@@ -69,14 +70,14 @@ public class UsuarioDAO {
 		Usuarios usuarioRet = null;
 		ResultSet rs = null;
 		
-		String sql = "SELECT * FROM unbosque.usuario us WHERE us.nombre like ?";
+		String sql = "SELECT * FROM tiendagenerica.usuarios us WHERE us.nombre like ?";
 		
 		try {
 			ps =  conn.getConnection().prepareStatement(sql);
 			ps.setString(1, usr.getNombre());
 			rs =  ps.executeQuery();
 			while(rs.next()) {
-				Integer cedula = rs.getInt(1);
+				Integer cedula = rs.getInt("cedula_usuario");
 				String email = rs.getString("email_usuario");
 			    String nombre = rs.getString("nombre_usuario");
 			    String password = rs.getString("password");
