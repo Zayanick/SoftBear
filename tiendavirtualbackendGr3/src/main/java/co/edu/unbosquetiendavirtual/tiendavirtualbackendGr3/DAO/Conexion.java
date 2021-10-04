@@ -5,16 +5,12 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Conexion {
-	
+	//Credenciales base de datos
 	static String bd = "tiendagenerica1";
-	   static String login = "root";
-	   static String password = "123456";
-	   static String url = "jdbc:mysql://localhost/"+bd; 
-	/*		static String bd = "yramirezdb";
-		   static String login = "admin";
-		   static String password = "Beta1234+*";
-		   static String url = "jdbc:mariadb://tiendagenerica1.c47knbsonjdi.us-east-2.rds.amazonaws.com/"+bd;
-	*/
+	static String login = "root";
+	static String password = "123456";
+	static String url = "jdbc:mysql://localhost/"+bd; 
+
 	   Connection connection = null;
 
 	   /** Constructor de DbConnection */
@@ -22,7 +18,7 @@ public class Conexion {
 	      try{
 	         //obtenemos el driver de para mysql
 	    	 Class.forName("com.mysql.cj.jdbc.Driver");
-	    	//  Class.forName("org.mariadb.jdbc.Driver");
+	    	 //  Class.forName("org.mariadb.jdbc.Driver");
 	         //obtenemos la conexión
 	         connection = DriverManager.getConnection(url,login,password);
 
