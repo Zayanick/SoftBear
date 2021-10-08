@@ -19,6 +19,13 @@ public class Clientes {
 		this.telefono = telefono;
 		
 	}
+	
+
+
+	public Clientes() {
+		super();
+	}
+
 
 
 	public int getCedula() {
