@@ -17,7 +17,7 @@
 		<form action="/auth" method="post">
 			<!-- Usuario -->
 			<label for="nombre de usuario">Nombre De Usuario</label>
-			<input type="text" name="nombre" id="nombre" placeholder="Digite su usuario" value="${usuario.nombre}">
+			<input type="text" name="nombre" id="nombre" placeholder="Digite su usuario" value="${usuario.usuario}">
 			
 			
 			<!-- Contraseña -->
@@ -30,7 +30,7 @@
 	</div>
 	<c:choose>
 <c:when test="${usuarios.email != null}">
-<label>Bienvenido, ${usuario.nombre}</label>
+<label>Bienvenido, ${usuario.usuario}</label>
 <label>Su rol es: ${usuario.password}</label>
 </c:when>
 </c:choose>
