@@ -67,7 +67,7 @@ private String SHEET="archivo";
 		consultarClientes();
 		model.addAttribute("cliente", getListaClientes());
 
-		return "Menu";
+		return "Clientes";
 
 			}
 
@@ -109,7 +109,7 @@ private String SHEET="archivo";
 		consultarUsuarios();
 		model.addAttribute("usuario", getListaUsuarios());
 
-		return "Menu";
+		return "Usuarios";
 
 			}
 

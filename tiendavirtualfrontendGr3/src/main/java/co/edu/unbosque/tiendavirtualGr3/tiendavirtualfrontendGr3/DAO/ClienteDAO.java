@@ -67,7 +67,7 @@ try {
 }
 
 }
-
+/**
 public UsuarioVO auth(UsuarioVO usr) {
 WebClient webClient =  WebClient.create(URL);
 UsuarioVO objUsuario = null;
@@ -78,6 +78,7 @@ objUsuario = response.block();
 
 return objUsuario;
 }
+*/
 
 public ProductoVO nuevoProducto(ProductoVO p) {
 	WebClient webClient =  WebClient.create(URL);

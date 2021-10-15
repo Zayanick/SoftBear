@@ -70,7 +70,7 @@ public class UsuarioDAO {
 		Usuario usuarioRet = null;
 		ResultSet rs = null;
 		
-		String sql = "SELECT * FROM tiendagenerica1.usuarios us WHERE us.nombre_usuario like ?";
+		String sql = "SELECT * FROM tiendagenerica1.usuarios us WHERE us.usuario like ?";
 		
 		try {
 			ps =  conn.getConnection().prepareStatement(sql);

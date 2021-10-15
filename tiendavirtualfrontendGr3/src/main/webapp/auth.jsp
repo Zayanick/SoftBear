@@ -29,7 +29,7 @@
 		</form>
 	</div>
 	<c:choose>
-<c:when test="${usuarios.email != null}">
+<c:when test="${usuario.email != null}">
 <label>Bienvenido, ${usuario.usuario}</label>
 <label>Su rol es: ${usuario.password}</label>
 </c:when>
