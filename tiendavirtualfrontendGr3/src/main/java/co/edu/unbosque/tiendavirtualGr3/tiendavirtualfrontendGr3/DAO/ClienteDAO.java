@@ -111,4 +111,24 @@ public void borrarProductos() {
     }
 	//return null;
 }
+	
+	public ClientesVO borrarCliente(ClientesVO clienteDto) {
+		try {
+			WebClient webClient = WebClient.create(URL);
+			  ClientesVO objUsuario = null;
+			  Mono<ClientesVO> response =webClient.post().uri(URL+"/borrarCliente")
+					  .body(Mono.just(clienteDto) , ClientesVO.class).retrieve().bodyToMono(ClientesVO.class);
+			  
+			  objUsuario = response.block();
+			  return objUsuario;
+			  
+		   
+		  } catch (WebClientResponseException e) {
+			  e.getMessage();
+			       System.out.println("----"+ e.getMessage());
+			       return null;
+		  }
+
+	
+}
 }

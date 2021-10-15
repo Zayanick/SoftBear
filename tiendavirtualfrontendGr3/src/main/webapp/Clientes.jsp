@@ -45,7 +45,7 @@
                </form>
 			</article>
 			<article id="tab2">
-				<form action="/crearCliente" method="post">
+				<form action="/borrarCliente" method="post">
 					<section class="registro"> 
 						<h4>Eliminar cliente</h4>    
                         <input class="controls" type="text" name="cedula" id="cedula" placeholder="Ingrese su Cedula" value="${clientes.cedula}">

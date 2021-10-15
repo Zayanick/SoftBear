@@ -72,6 +72,16 @@ private String SHEET="archivo";
 		return "Clientes";
 
 			}
+	@PostMapping("/borrarCliente")
+ 	public String borrarCliente(Model model, ClientesVO cliente) {
+ 
+ 		ClienteDAO dao = new ClienteDAO();
+ 		
+ 		model.addAttribute("Cliente",  dao.borrarCliente(cliente));
+ 		consultarClientes();
+ 		model.addAttribute("Cliente", getListaClientes());		
+ 		return "redirect:/Clientes.jsp";
+	}
 
 
 //////////////////////////////////////////////USUARIOS//////////////////////

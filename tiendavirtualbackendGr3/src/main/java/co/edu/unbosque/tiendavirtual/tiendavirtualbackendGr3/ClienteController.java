@@ -37,6 +37,13 @@ public class ClienteController {
 		ClienteDAO dao=new ClienteDAO(); 
 	    return dao.registrarCliente(persona);
 	 }	
+	
+	@RequestMapping("/borrarCliente")
+	public Clientes borrarCliente(@RequestBody Clientes ClienteDTO ) {
+		ClienteDAO dao =  new ClienteDAO();
+		
+		return dao.borrarCliente(ClienteDTO);		
+	}
 //////////////////////////////////////////////////////////////////////////USUARIOS/////////////////////////////////////	
 	
 	@RequestMapping("/listarUsuarios")

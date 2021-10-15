@@ -113,4 +113,24 @@ public class ClienteDAO {
 	  }
 	  return p;
 	 }
+	
+	public Clientes borrarCliente(Clientes persona) 
+	 {
+	  
+	  try {
+		  Conexion conex= new Conexion();
+	   PreparedStatement estatuto = conex.getConnection().prepareStatement("delete from tiendagenerica1.clientes where cedula_cliente=?");
+	   
+	   estatuto.setLong(1, persona.getCedula());
+	   
+	   estatuto.executeUpdate();
+	   conex.desconectar();
+	   
+	   return null;
+	   
+	  } catch (SQLException e) {
+		       System.out.println(e.getMessage());
+	  }
+	return persona;
+}
 }
