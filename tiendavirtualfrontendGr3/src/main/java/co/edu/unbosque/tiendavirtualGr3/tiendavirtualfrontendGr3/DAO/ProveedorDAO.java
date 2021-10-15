@@ -43,7 +43,7 @@ public String listarProveedores() {
 }
 
 
-public ProveedoresVO nuevoUsuario(ProveedoresVO usuarioDto) {
+public ProveedoresVO nuevoProveedor(ProveedoresVO usuarioDto) {
 
 try {
 	WebClient webClient = WebClient.create(URL);

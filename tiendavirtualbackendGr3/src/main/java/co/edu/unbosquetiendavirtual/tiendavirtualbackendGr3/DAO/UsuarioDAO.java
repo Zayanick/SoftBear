@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
-import co.edu.unbosque.tiendavirtual.tiendavirtualbackendGr3.Conexion;
+
 import co.edu.unbosque.tiendavirtual.tiendavirtualbackendGr3.DTO.*;
 
 public class UsuarioDAO {

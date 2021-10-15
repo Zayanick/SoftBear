@@ -24,12 +24,14 @@ public class ClientesController {
 	
 private ArrayList<ClientesVO> listaClientes;
 private ArrayList<UsuarioVO> listaUsuarios;
+private ArrayList<ProveedoresVO> listaProveedores;
 private String fileLocation;
 private String SHEET="archivo";
 	
 	@Autowired
 	private ClienteDAO objEstDao;
 	private UsuarioDAO objEstDaoo;
+	private ProveedorDAO objEstDaooo;
 	
 	
 	public void consultarClientes() {
@@ -72,7 +74,7 @@ private String SHEET="archivo";
 			}
 
 
-	//////////////////////////////////////////////USUARIOS//////////////////////
+//////////////////////////////////////////////USUARIOS//////////////////////
 	
 	public void consultarUsuarios() {
 		objEstDaoo = new UsuarioDAO();
@@ -146,6 +148,47 @@ private String SHEET="archivo";
  		return "redirect:/Usuarios.jsp";
  
 }
+	///////////////////////////////////////PROVEEDORES/////////////////
+	public void consultarProveedores() {
+		objEstDaooo = new ProveedorDAO();
+		String json = objEstDaooo.listarProveedores();
+		if(json  != null) {
+            Type listType = new TypeToken<ArrayList<ProveedoresVO>>(){}.getType();
+            Gson gson = new Gson();
+            listaProveedores = gson.fromJson(json, listType);
+        }else {
+        	listaProveedores = new ArrayList<ProveedoresVO>();
+        }
+	}
+
+	public ProveedoresVO guardarProveedor(ProveedoresVO est) {
+		objEstDaooo = new ProveedorDAO();
+		return objEstDaooo.nuevoProveedor(est);
+	}
+
+	public ArrayList<ProveedoresVO> getListaProveedores() {
+		return listaProveedores;
+	}
+
+
+	public void setListaProveedores(ArrayList<ProveedoresVO> listaProveedores) {
+		this.listaProveedores = listaProveedores;
+	}
+	
+	@PostMapping("/crearProveedor")
+	public String crearProveedor(Model model, ProveedoresVO proveedor) {
+
+		objEstDaooo = new ProveedorDAO();
+		
+		model.addAttribute("proveedor", objEstDaooo.nuevoProveedor(proveedor));
+		consultarProveedores();
+		model.addAttribute("proveedor", getListaProveedores());
+
+		return "Proveedores";
+
+			}
+	
+	
 	///////////////////////////////////////PRODUCTOS///////////////////
 	
 	@PostMapping("/uploadCSVFile")

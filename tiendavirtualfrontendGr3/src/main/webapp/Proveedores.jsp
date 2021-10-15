@@ -30,14 +30,14 @@
 
 		<div class="secciones">
 			<article id="tab1">
-				<form action="/crearCliente" method="post">
+				<form action="/crearProveedor" method="post">
 					<section class="registro"> 
 						<h4>Registrar Proveedor</h4>    
-                        <input class="controls" type="text" name="cedula" id="cedula" placeholder="Ingrese su Cedula" value="${clientes.cedula}">
-                        <input class="controls" type="text" name="nombre" id="nombre" placeholder="Ingrese su Nombre" value="${clientes.direccion}">
-                        <input class="controls" type="text" name="email" id="email" placeholder="Ingrese su Correo" value="${clientes.cedula}">
-                        <input class="controls" type="text" name="nombre" id="nombre" placeholder="Ingrese su Nombre" value="${clientes.nombre}">
-                        <input class="controls" type="password" name="contraseña" id="contraseña" placeholder="Ingrese su Usuario" value="${clientes.direccion}">
+                        <input class="controls" type="text" name="nit" id="nit" placeholder="Ingrese su NIT" value="${proveedores.nit}">
+                        <input class="controls" type="text" name="ciudad" id="ciudad" placeholder="Ciudad" value="${proveedores.ciudad}">
+                        <input class="controls" type="text" name="direccion" id="direccion" placeholder="Ingrese su Direccion" value="${proveedores.direccion}">
+                        <input class="controls" type="text" name="nombre" id="nombre" placeholder=" Nombre" value="${proveedores.nombre}">
+                        <input class="controls" type="text" name="telefono" id="telefono" placeholder="Ingrese su Telefono" value="${proveedores.telefono}">
                         <br>
                         <input class="botons" type="submit" value="Crear">
      
