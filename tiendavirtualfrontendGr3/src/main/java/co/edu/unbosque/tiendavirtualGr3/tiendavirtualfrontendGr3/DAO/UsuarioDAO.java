@@ -73,4 +73,23 @@ objUsuario = response.block();
 
 return objUsuario;
 }
+
+public UsuarioVO borrarUsuario(UsuarioVO usuarioDto) {
+	try {
+		WebClient webClient = WebClient.create(URL);
+		  UsuarioVO objUsuario = null;
+		  Mono<UsuarioVO> response =webClient.post().uri(URL+"/borrarUsuario")
+				  .body(Mono.just(usuarioDto) , UsuarioVO.class).retrieve().bodyToMono(UsuarioVO.class);
+		  
+		  objUsuario = response.block();
+		  return objUsuario;
+		  
+	   
+	  } catch (WebClientResponseException e) {
+		  e.getMessage();
+		       System.out.println("----"+ e.getMessage());
+		       return null;
+	  }
+
+}
 }

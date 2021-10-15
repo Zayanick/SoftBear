@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
-
+import co.edu.unbosque.tiendavirtual.tiendavirtualbackendGr3.Conexion;
 import co.edu.unbosque.tiendavirtual.tiendavirtualbackendGr3.DTO.*;
 
 public class UsuarioDAO {
@@ -107,6 +107,26 @@ public class UsuarioDAO {
 		
 		return usuarioRet;
 	}
+	
+	public Usuario borrarUsuario(Usuario persona) 
+	 {
+	  
+	  try {
+		  Conexion conex= new Conexion();
+	   PreparedStatement estatuto = conex.getConnection().prepareStatement("delete from tiendagenerica1.usuarios where cedula_usuario=?");
+	   
+	   estatuto.setLong(1, persona.getCedula());
+	   
+	   estatuto.executeUpdate();
+	   conex.desconectar();
+	   
+	   return null;
+	   
+	  } catch (SQLException e) {
+		       System.out.println(e.getMessage());
+	  }
+	return persona;
+}
 	
 	
 }

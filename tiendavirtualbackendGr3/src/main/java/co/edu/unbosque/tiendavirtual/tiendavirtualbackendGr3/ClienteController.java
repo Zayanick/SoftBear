@@ -58,6 +58,15 @@ public class ClienteController {
 		UsuarioDAO dao =  new UsuarioDAO();
 		return dao.consultarUsuario(usr);
 	}
+	
+	@RequestMapping("/borrarUsuario")
+	public Usuario borrarUsuario(@RequestBody Usuario UsuarioDTO ) {
+		UsuarioDAO dao =  new UsuarioDAO();
+		
+		return dao.borrarUsuario(UsuarioDTO);		
+	}
+	
+	
 	/////////////////////////////////////////////PROVEEDORES/////////////////////////////////////////////////////////
 	@RequestMapping("/listarProveedores")
 	public ArrayList<Proveedores> listaProveedores() {

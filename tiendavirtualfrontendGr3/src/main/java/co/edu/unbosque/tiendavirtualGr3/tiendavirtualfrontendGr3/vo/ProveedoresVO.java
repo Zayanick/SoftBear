@@ -21,6 +21,11 @@ public class ProveedoresVO {
 		}
 	
 	
+	public ProveedoresVO() {
+		super();
+	}
+
+
 	public int getNit() {
 		return nit;
 	}
@@ -50,6 +55,13 @@ public class ProveedoresVO {
 	}
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
+	}
+
+
+	@Override
+	public String toString() {
+		return "ProveedoresVO [nit=" + nit + ", ciudad=" + ciudad + ", direccion=" + direccion + ", nombre=" + nombre
+				+ ", telefono=" + telefono + "]";
 	}
 	
 	

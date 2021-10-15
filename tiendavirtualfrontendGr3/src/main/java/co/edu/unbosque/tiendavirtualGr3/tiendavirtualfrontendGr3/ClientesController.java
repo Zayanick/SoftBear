@@ -134,6 +134,18 @@ private String SHEET="archivo";
 		}
 		return "auth";
 	}
+	
+	@PostMapping("/borrarUsuario")
+ 	public String borrarUsuario(Model model, UsuarioVO usuario) {
+ 
+ 		UsuarioDAO dao = new UsuarioDAO();
+ 		
+ 		model.addAttribute("Usuario",  dao.borrarUsuario(usuario));
+ 		consultarUsuarios();
+ 		model.addAttribute("Usuarios", getListaUsuarios());		
+ 		return "redirect:/Usuarios.jsp";
+ 
+}
 	///////////////////////////////////////PRODUCTOS///////////////////
 	
 	@PostMapping("/uploadCSVFile")
