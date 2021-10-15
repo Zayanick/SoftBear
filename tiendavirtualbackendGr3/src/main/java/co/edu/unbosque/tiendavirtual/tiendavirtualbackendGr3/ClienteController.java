@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import co.edu.unbosque.tiendavirtual.tiendavirtualbackendGr3.DTO.*;
 import co.edu.unbosquetiendavirtual.tiendavirtualbackendGr3.DAO.ClienteDAO;
+import co.edu.unbosquetiendavirtual.tiendavirtualbackendGr3.DAO.ProveedoresDAO;
 import co.edu.unbosquetiendavirtual.tiendavirtualbackendGr3.DAO.UsuarioDAO;
 
 @RestController
@@ -57,6 +58,24 @@ public class ClienteController {
 		UsuarioDAO dao =  new UsuarioDAO();
 		return dao.consultarUsuario(usr);
 	}
+	/////////////////////////////////////////////PROVEEDORES/////////////////////////////////////////////////////////
+	@RequestMapping("/listarProveedores")
+	public ArrayList<Proveedores> listaProveedores() {
+		ProveedoresDAO objDAO=new ProveedoresDAO(); 
+			return objDAO.listaDeProveedores();
+		
+	}
+	
+	
+	@PostMapping("/registrarProveedores")
+	public Proveedores registrarProveedor(@RequestBody Proveedores persona) 
+	 {
+		ProveedoresDAO dao=new ProveedoresDAO(); 
+	    return dao.registrarProveedor(persona);
+	 }	
+	
+	
+	/////////////////////////////////////////////PRODUCTOS///////////////////////////////////////////////////////////
 	
 	@GetMapping("/borrarProductos")
 	public void borrarProductos() {
