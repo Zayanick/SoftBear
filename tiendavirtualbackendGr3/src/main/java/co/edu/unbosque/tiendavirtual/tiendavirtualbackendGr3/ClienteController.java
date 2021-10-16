@@ -109,6 +109,12 @@ public class ClienteController {
 		return dao.registrarProducto(p);	
 	}
 	
+	@RequestMapping("/listarVentas")
+	public ArrayList<Ventas> listaVentas() {
+		UsuarioDAO objDAO=new UsuarioDAO(); 
+			return objDAO.listaDeVentas();
+		
+	}
 	
 }
 

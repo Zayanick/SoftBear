@@ -129,6 +129,40 @@ public class UsuarioDAO {
 }
 	
 	
+	
+	
+	
+	public ArrayList<Ventas> listaDeVentas() {
+		  ArrayList<Ventas> misVentas = new ArrayList<Ventas>();
+		  Conexion conex= new Conexion();
+		    
+		  try {
+			   PreparedStatement consulta = conex.getConnection().prepareStatement("SELECT * FROM ventas");
+			   ResultSet res = consulta.executeQuery();
+			   while(res.next()){
+			    
+			    int codvent = Integer.parseInt(res.getString("codigo_venta"));
+			    String ivavent = res.getString("ivaventa");
+			    String totalvent = res.getString("total_venta");
+			    String valorvent = res.getString("valor_venta");    
+			    String clientescedula = res.getString("clientes_cedula_cliente");
+			    String usuarioscedula = res.getString("usuarios_cedula_usuario");
+			    
+			    Ventas ventas= new Ventas(codvent, ivavent, totalvent, valorvent, clientescedula ,usuarioscedula);
+			    misVentas.add(ventas);
+			          }
+			          res.close();
+			          consulta.close();
+			          conex.desconectar();
+			   
+			  } catch (Exception e) {
+			   JOptionPane.showMessageDialog(null, "no se pudo consultar la Persona\n"+e);
+			  }
+			  return misVentas;
+			  
+		  
+	  }
+	
 }
 
 

@@ -24,6 +24,7 @@ public class ClientesController {
 	
 private ArrayList<ClientesVO> listaClientes;
 private ArrayList<UsuarioVO> listaUsuarios;
+private ArrayList<VentasVO> listaVentas;
 private ArrayList<ProveedoresVO> listaProveedores;
 private String fileLocation;
 private String SHEET="archivo";
@@ -250,6 +251,26 @@ public void borrarProductos() {
 	ClienteDAO miDao =  new ClienteDAO();
 	miDao.borrarProductos();
 	
+}
+
+public void consultarVentas() {
+	objEstDaoo = new UsuarioDAO();
+	String json = objEstDaoo.listarVentas();
+	if(json  != null) {
+        Type listType = new TypeToken<ArrayList<VentasVO>>(){}.getType();
+        Gson gson = new Gson();
+        listaVentas = gson.fromJson(json, listType);
+    }else {
+    	listaVentas = new ArrayList<VentasVO>();
+    }
+}
+
+public ArrayList<VentasVO> getlistaVentas() {
+	return listaVentas;
+}
+
+public void setlistaVentas(ArrayList<VentasVO> listaVentas) {
+	this.listaVentas = listaVentas;
 }
 	
 	
