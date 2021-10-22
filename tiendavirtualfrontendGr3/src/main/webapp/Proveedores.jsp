@@ -57,15 +57,11 @@
                </form>
 			</article>
 			<article id="tab2">
-				<form action="/crearCliente" method="post">
+				<form action="/borrarProveedor" method="post">
 					<section class="registro"> 
 						<h4>Eliminar Proveedor</h4>    
-                        <input class="controls" type="text" name="cedula" id="cedula" placeholder="Ingrese su Cedula" value="${clientes.cedula}">
-                        <input class="controls" type="text" name="direccion" id="direccion" placeholder="Ingrese su Direccion" value="${clientes.direccion}">
-                        <input class="controls" type="text" name="email" id="email" placeholder="Ingrese su Correo" value="${clientes.email}">
-                        <input class="controls" type="text" name="nombre" id="nombre" placeholder="Ingrese su Nombre" value="${clientes.nombre}">
-                        <input class="controls" type="text" name="telefono" id="telefono" placeholder="Ingrese su Telefono" value="${clientes.telefono}">
-                        <br>
+                        <input class="controls" type="text" name="nit" id="nit" placeholder="Ingrese el NIT" value="${proveedores.nit}">
+                        
                         <input class="botons" type="submit" value="Borrar"> 
                     </section>
                </form>

@@ -103,6 +103,12 @@ public class ClienteController {
 	    return dao.registrarProveedor(persona);
 	 }	
 	
+	@RequestMapping("/borrarProveedor")
+	public Proveedores borrarProveedor(@RequestBody Proveedores ProveedoresDTO ) {
+		ProveedoresDAO dao =  new ProveedoresDAO();
+		
+		return dao.borrarProveedor(ProveedoresDTO);		
+	}
 	
 	/////////////////////////////////////////////PRODUCTOS///////////////////////////////////////////////////////////
 	
