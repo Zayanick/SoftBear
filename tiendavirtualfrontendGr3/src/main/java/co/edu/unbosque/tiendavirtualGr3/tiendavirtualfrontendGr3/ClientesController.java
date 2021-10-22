@@ -198,7 +198,17 @@ private String SHEET="archivo";
 		return "Proveedores";
 
 			}
-	
+	@PostMapping("/borrarProveedor")
+ 	public String borrarProveedor(Model model, ProveedoresVO usuario) {
+ 
+ 		ProveedorDAO dao = new ProveedorDAO();
+ 		
+ 		model.addAttribute("Usuario",  dao.borrarProveedor(usuario));
+ 		consultarUsuarios();
+ 		model.addAttribute("Usuarios", getListaProveedores());		
+ 		return "redirect:/Proveedores.jsp";
+ 
+}
 	
 	///////////////////////////////////////PRODUCTOS///////////////////
 	

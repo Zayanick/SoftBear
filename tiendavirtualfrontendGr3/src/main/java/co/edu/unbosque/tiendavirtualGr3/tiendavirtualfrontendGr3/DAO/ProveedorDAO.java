@@ -61,4 +61,22 @@ try {
 }
 
 }
+public ProveedoresVO borrarProveedor(ProveedoresVO proveedorDto) {
+	try {
+		WebClient webClient = WebClient.create(URL);
+		ProveedoresVO objUsuario = null;
+		  Mono<ProveedoresVO> response =webClient.post().uri(URL+"/borrarProveedor")
+				  .body(Mono.just(proveedorDto) , ProveedoresVO.class).retrieve().bodyToMono(ProveedoresVO.class);
+		  
+		  objUsuario = response.block();
+		  return objUsuario;
+		  
+	   
+	  } catch (WebClientResponseException e) {
+		  e.getMessage();
+		       System.out.println("----"+ e.getMessage());
+		       return null;
+	  }
+
+}
 }

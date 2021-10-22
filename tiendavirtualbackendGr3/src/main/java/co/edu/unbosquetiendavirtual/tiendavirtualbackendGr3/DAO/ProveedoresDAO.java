@@ -62,4 +62,24 @@ public class ProveedoresDAO {
 	  }
 	  return persona;
 	 }
+	
+	public Proveedores borrarProveedor(Proveedores persona) 
+	 {
+	  
+	  try {
+		  Conexion conex= new Conexion();
+	   PreparedStatement estatuto = conex.getConnection().prepareStatement("delete from tiendagenerica1.Proveedores where nitproveedor=?");
+	   
+	   estatuto.setLong(1, persona.getNit());
+	   
+	   estatuto.executeUpdate();
+	   conex.desconectar();
+	   
+	   return null;
+	   
+	  } catch (SQLException e) {
+		       System.out.println(e.getMessage());
+	  }
+	return persona;
+}
 }
