@@ -43,7 +43,7 @@ public class VentasDAO {
 	  }
 	  
 	
-	public Ventas registrarVentas(Ventas ventas) 
+	public Ventas registrarVenta(Ventas ventas) 
 	 {
 	  Conexion conex= new Conexion();
 	  try {

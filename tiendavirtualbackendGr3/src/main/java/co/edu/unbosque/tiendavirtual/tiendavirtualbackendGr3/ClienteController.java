@@ -140,7 +140,7 @@ public class ClienteController {
 	public Ventas registrarVentas(@RequestBody Ventas persona) 
 	 {
 		VentasDAO dao=new VentasDAO(); 
-	    return dao.registrarVentas(persona);
+	    return dao.registrarVenta(persona);
 	 }
 }
 
