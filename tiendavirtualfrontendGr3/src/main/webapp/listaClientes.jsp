@@ -39,7 +39,8 @@ ClientesController controller = new ClientesController();
 		<td><%= dto.getDireccion() %></td>		
 		<td><%= dto.getEmail() %></td>
 		<td><%= dto.getNombre() %></td>			
-		<td><%= dto.getTelefono() %></td>	
+		<td><%= dto.getTelefono() %></td>
+		<a th:href="@{/editarCliente/}+${Cliente.cedula}" class="btn btn-warning">editar</a>	
 			
 	</tr>
 	<% } %>

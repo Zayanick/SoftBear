@@ -1,8 +1,12 @@
 package co.edu.unbosque.tiendavirtual.tiendavirtualbackendGr3;
 
 import java.util.ArrayList;
+import java.util.List;
 
+
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,19 +21,28 @@ import co.edu.unbosquetiendavirtual.tiendavirtualbackendGr3.DAO.ProveedoresDAO;
 import co.edu.unbosquetiendavirtual.tiendavirtualbackendGr3.DAO.UsuarioDAO;
 
 @RestController
+@RequestMapping
 public class ClienteController {
 	/**
 	 * permite consultar la lista de Usuarios
 	 * @return
 	*/
 //////////////////////////////////////////////////////////////////////////CLIENTES///////////////////////////////	
+	
+		
 	@RequestMapping("/listarClientes")
 	public ArrayList<Clientes> listaClientes() {
 		ClienteDAO objDAO=new ClienteDAO(); 
 			return objDAO.listaDeClientes();
-		
 	}
 	
+	@GetMapping("/editarrCliente/{cedula}")
+	public String editarCliente(@PathVariable int cedula,  Model model ) {
+		
+		//Optional<ClienteDAO> clientes=  ClienteDAO.listaClientes();
+		
+		return "form";
+	}
 	
 	@PostMapping("/registrarClientes")
 	public Clientes registrarCliente(@RequestBody Clientes persona) 

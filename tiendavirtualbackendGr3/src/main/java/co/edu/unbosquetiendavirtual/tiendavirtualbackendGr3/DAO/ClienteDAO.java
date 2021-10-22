@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
+import java.util.List;
 
 import co.edu.unbosque.tiendavirtual.tiendavirtualbackendGr3.DTO.*;
 
@@ -133,4 +134,5 @@ public class ClienteDAO {
 	  }
 	return persona;
 }
+	
 }

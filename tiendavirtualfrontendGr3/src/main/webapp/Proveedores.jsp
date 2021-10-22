@@ -1,7 +1,19 @@
+
+<%@ page
+	import="co.edu.unbosque.tiendavirtualGr3.tiendavirtualfrontendGr3.vo.*"%>
+<%@ page
+	import="co.edu.unbosque.tiendavirtualGr3.tiendavirtualfrontendGr3.*"%>
+<%@ page import="java.util.*"%>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="ISO-8859-1">
+	
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<title>Menu</title>
 	<link rel="stylesheet" href="estilos.css">
@@ -88,6 +100,42 @@
 			</article>
 			
 		</div>
+		<article id="tab4">
+			<div class="container">
+				<label>Lista de Proveedores</label>
+				<%
+				ClientesController controller = new ClientesController();
+				controller.consultarProveedores();
+				ArrayList<ProveedoresVO> lista = controller.getListaProveedores();
+				%>
+
+				<table class="table table-striped">
+					<th>
+					<td scope="col">Nit</td>
+					<td scope="col">Ciudad</td>
+					<td scope="col">Nombre</td>
+					<td scope="col">Telefono</td>
+                    <a th:href="@{/editarCliente/}+${Cliente.cedula}" class="btn btn-warning">editar</a>
+                    
+					<tbody>
+					<%
+					for (ProveedoresVO dto : lista) {
+					%>
+					<tbody>
+					<tr>
+						<td></td>
+						<td><%=dto.getNit()%></td>
+						<td><%=dto.getCiudad()%></td>
+						<td><%=dto.getNombre()%></td>
+						<td><%=dto.getTelefono()%></td>
+
+					</tr>
+					<%
+					}
+					%>
+				</table>
+			</div>
+		</article>
 	</div>
 </body>
 </html>

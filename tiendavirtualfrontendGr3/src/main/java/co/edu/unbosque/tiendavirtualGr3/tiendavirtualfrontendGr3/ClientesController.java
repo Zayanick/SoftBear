@@ -5,11 +5,13 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.StringTokenizer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.multipart.MultipartFile;
@@ -33,8 +35,6 @@ private String SHEET="archivo";
 	private ClienteDAO objEstDao;
 	private UsuarioDAO objEstDaoo;
 	private ProveedorDAO objEstDaooo;
-	
-	
 	public void consultarClientes() {
 		objEstDao = new ClienteDAO();
 		String json = objEstDao.listarUsuarios();
@@ -56,9 +56,20 @@ private String SHEET="archivo";
 		return listaClientes;
 	}
 
-
 	public void setListaClientes(ArrayList<ClientesVO> listaClientes) {
 		this.listaClientes = listaClientes;
+	}
+	
+	private ClienteDAO cliente;
+	
+	@GetMapping("/ListarClientes")//lista Cliente
+	public String ListarClientes(Model model,ArrayList<ClientesVO> listaClientes) {
+		
+		this.listaClientes = listaClientes;
+		
+		model.addAttribute("Titulo", "Lista de Clientes");
+		model.addAttribute("Clientes", listaClientes );
+		return "Clientes";		
 	}
 	
 	@PostMapping("/crearCliente")//crearCliente
