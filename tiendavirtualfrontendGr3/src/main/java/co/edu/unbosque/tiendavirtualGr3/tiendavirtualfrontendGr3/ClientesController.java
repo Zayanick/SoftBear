@@ -35,6 +35,7 @@ private String SHEET="archivo";
 	private ClienteDAO objEstDao;
 	private UsuarioDAO objEstDaoo;
 	private ProveedorDAO objEstDaooo;
+	private VentaDAO objEstDaoooo;
 	public void consultarClientes() {
 		objEstDao = new ClienteDAO();
 		String json = objEstDao.listarUsuarios();
@@ -220,6 +221,41 @@ private String SHEET="archivo";
  		return "redirect:/Proveedores.jsp";
  
 }
+////////////////////////////////////////////VENTAS/////////////////////
+	public void consultarVentas() {
+		objEstDaoo = new UsuarioDAO();
+		String json = objEstDaoo.listarVentas();
+		if(json  != null) {
+	        Type listType = new TypeToken<ArrayList<VentasVO>>(){}.getType();
+	        Gson gson = new Gson();
+	        listaVentas = gson.fromJson(json, listType);
+	    }else {
+	    	listaVentas = new ArrayList<VentasVO>();
+	    }
+	}
+
+	public ArrayList<VentasVO> getlistaVentas() {
+		return listaVentas;
+	}
+
+	public void setlistaVentas(ArrayList<VentasVO> listaVentas) {
+		this.listaVentas = listaVentas;
+	}
+		
+	
+	@PostMapping("/crearVenta")
+	public String crearVenta(Model model, VentasVO venta) {
+
+		objEstDaoooo = new VentaDAO();
+		
+		model.addAttribute("venta", objEstDaoooo.nuevaVenta(venta));
+		consultarVentas();
+		model.addAttribute("venta", getlistaVentas());
+
+		return "Ventas";
+
+			}
+	
 	
 	///////////////////////////////////////PRODUCTOS///////////////////
 	
@@ -274,25 +310,6 @@ public void borrarProductos() {
 	
 }
 
-public void consultarVentas() {
-	objEstDaoo = new UsuarioDAO();
-	String json = objEstDaoo.listarVentas();
-	if(json  != null) {
-        Type listType = new TypeToken<ArrayList<VentasVO>>(){}.getType();
-        Gson gson = new Gson();
-        listaVentas = gson.fromJson(json, listType);
-    }else {
-    	listaVentas = new ArrayList<VentasVO>();
-    }
-}
 
-public ArrayList<VentasVO> getlistaVentas() {
-	return listaVentas;
-}
-
-public void setlistaVentas(ArrayList<VentasVO> listaVentas) {
-	this.listaVentas = listaVentas;
-}
-	
 	
 }

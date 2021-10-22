@@ -19,6 +19,7 @@ import co.edu.unbosque.tiendavirtual.tiendavirtualbackendGr3.DTO.*;
 import co.edu.unbosquetiendavirtual.tiendavirtualbackendGr3.DAO.ClienteDAO;
 import co.edu.unbosquetiendavirtual.tiendavirtualbackendGr3.DAO.ProveedoresDAO;
 import co.edu.unbosquetiendavirtual.tiendavirtualbackendGr3.DAO.UsuarioDAO;
+import co.edu.unbosquetiendavirtual.tiendavirtualbackendGr3.DAO.VentasDAO;
 
 @RestController
 @RequestMapping
@@ -127,14 +128,20 @@ public class ClienteController {
 		ClienteDAO dao =  new ClienteDAO();
 		return dao.registrarProducto(p);	
 	}
-	
+//////////////////////////////////////////////////////Ventas///////////////////////////////////	
 	@RequestMapping("/listarVentas")
 	public ArrayList<Ventas> listaVentas() {
-		UsuarioDAO objDAO=new UsuarioDAO(); 
+		VentasDAO objDAO=new VentasDAO(); 
 			return objDAO.listaDeVentas();
 		
 	}
 	
+	@PostMapping("/registrarVenta")
+	public Ventas registrarVentas(@RequestBody Ventas persona) 
+	 {
+		VentasDAO dao=new VentasDAO(); 
+	    return dao.registrarVentas(persona);
+	 }
 }
 
 

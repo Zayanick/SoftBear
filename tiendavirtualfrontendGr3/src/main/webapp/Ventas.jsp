@@ -40,14 +40,15 @@
 
 		<div class="secciones">
 			<article id="tab1">
-				<form action="/crearCliente" method="post">
+				<form action="/crearVenta" method="post">
 					<section class="registro"> 
-						<h4>Registrar cliente</h4>                                                 
-                        <input class="controls" type="text" name="cedula" id="cedula" placeholder="Ingrese su Cedula" value="${clientes.cedula}">
-                        <input class="controls" type="text" name="direccion" id="direccion" placeholder="Ingrese su Direccion" value="${clientes.direccion}">
-                        <input class="controls" type="text" name="email" id="email" placeholder="Ingrese su Email" value="${clientes.email}">
-                        <input class="controls" type="text" name="nombre" id="nombre" placeholder="Ingrese su Nombre" value="${clientes.nombre}">
-                        <input class="controls" type="text" name="telefono" id="telefono" placeholder="Ingrese su Telefono" value="${clientes.telefono}">
+						<h4>Registrar venta</h4>                                                 
+                        <input class="controls" type="text" name="codigo" id="codigo" placeholder="Ingrese codigo de venta" value="${Venta.codigoVenta}">
+                        <input class="controls" type="text" name="iva" id="iva" placeholder="IVA" value="${Venta.ivaVenta}">
+                        <input class="controls" type="text" name="total" id="total" placeholder="Total Venta" value="${Venta.totalVenta}">
+                        <input class="controls" type="text" name="valor" id="valor" placeholder="Valor Venta" value="${Venta.valorVenta}">
+                        <input class="controls" type="text" name="cedulac" id="cedulac" placeholder="Ingrese Cedula Cliente" value="${Veta.clienteCedula}">
+                        <input class="controls" type="text" name="cedulau" id="cedulau" placeholder="Ingrese su cedula" value="${Venta.usuarioCedula}">
                         <br>
                         <input class="botons" type="submit" value="Crear">
      
