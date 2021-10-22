@@ -68,7 +68,7 @@ public class ProveedoresDAO {
 	  
 	  try {
 		  Conexion conex= new Conexion();
-	   PreparedStatement estatuto = conex.getConnection().prepareStatement("delete from tiendagenerica1.Proveedores where nitproveedor=?");
+	   PreparedStatement estatuto = conex.getConnection().prepareStatement("delete from tiendagenerica1.proveedores where nitproveedor=?");
 	   
 	   estatuto.setLong(1, persona.getNit());
 	   
